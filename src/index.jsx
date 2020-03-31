@@ -22,7 +22,7 @@ const initialState = {
 
 // State and reducers
 const reducers = combineReducers({
-  messages: massagesReducer,
+  messages: messagesReducer,
   channels: channelsReducer,
   selectedChannel: selectedChannelReducer,
   currentUser: currentUserReducer,
