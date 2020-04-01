@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 
-class Message extends Component {
-  render() {
-    return (
-      <h1>hey</h1>
-    );
-  }
-}
+const Message = (props) => {
+  const { author, content } = props.message;
+  // const time = new Date(created_at).toLocaleTimeString();
+  return (
+    <div className="message-container">
+      <i className="author">
+        <span style={{ color: "red" }}>{author}</span>
+      </i>
+      <p>{content}</p>
+    </div>
+  );
+};
+
 
 export default Message;
