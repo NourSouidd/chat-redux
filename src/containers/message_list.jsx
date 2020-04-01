@@ -14,7 +14,7 @@ class MessageList extends Component {
   }
 
   componentDidMount() {
-    this.refresher = setInterval(fetchMessages, 500);
+    this.refresher = setInterval(fetchMessages, 5000);
   }
 
   componentDidUpdate() {

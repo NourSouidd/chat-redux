@@ -1,14 +1,18 @@
-import { MESSAGE_POSTED } from '../actions';
+import { FETCH_MESSAGES, MESSAGE_POSTED, CHANNEL_SELECTED} from '../actions';
 
 export default function(state = null, action) {
-  if (state === undefined) {
-    return [];
-  }
   switch (action.type) {
-    case MESSAGE_POSTED:
+    case FETCH_MESSAGES: {
+      return action.payload.messages;
+    }
+    case MESSAGE_POSTED: {
       const copiedState = state.slice(0);
       copiedState.push(action.payload);
       return copiedState;
+    }
+    case CHANNEL_SELECTED: {
+      return [];
+    }
     default:
       return state;
   }

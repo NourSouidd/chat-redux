@@ -11,10 +11,9 @@ import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
 import messagesReducer from "./reducers/messages_reducer";
-import channelsReducer from "./reducers/channels_reducer";
 import selectedChannelReducer from "./reducers/selected_channel_reducer";
-import currentUserReducer from "./reducers/current_user_reducer";
 
+const identityReducer = (state = null) => state;
 
 const initialState = {
   // Store a list of messages
@@ -30,19 +29,19 @@ const initialState = {
 // State and reducers
 const reducers = combineReducers({
   messages: messagesReducer,
-  channels: channelsReducer,
+  channels: identityReducer,
   selectedChannel: selectedChannelReducer,
-  currentUser: currentUserReducer,
+  currentUser: identityReducer,
 });
 
 // redux logger middleware
 // display in the console the states
 // give your action a promise as payload
 const middlewares = applyMiddleware(reduxPromise, logger);
-
+const store = createStore(reducers, initialState, middlewares);
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, initialState, middlewares)}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
