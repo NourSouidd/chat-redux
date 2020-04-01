@@ -10,7 +10,7 @@ export function fetchMessages(channel) {
   const promise = fetch(url)
     .then(response => response.json());
   return {
-    type: 'FETCH_MESSAGES',
+    type: FETCH_MESSAGES,
     payload: promise
   };
 }
@@ -27,14 +27,14 @@ export function createMessage(channel, author, content) {
     body: JSON.stringify(body)
   }).then(r => r.json());
   return {
-    type: 'MESSAGE_POSTED',
+    type: MESSAGE_POSTED,
     payload: promise
   };
 }
 
 export function selectChannel(channel) {
   return {
-    type: 'CHANNEL_SELECTED',
+    type: CHANNEL_SELECTED,
     payload: channel
   };
 }
